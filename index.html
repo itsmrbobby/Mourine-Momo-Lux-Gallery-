@@ -96,6 +96,23 @@
         #lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; }
         #lightbox figcaption { color: rgba(255,255,255,.75); font-size: .875rem; text-align: center; margin-top: .75rem; }
         #lightbox button { position: absolute; top: 1rem; right: 1.25rem; color: #fff; font-size: 2.25rem; line-height: 1; padding: .25rem .75rem; }
+        .cat-img{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;background:#EDE8E0}
+        .cat-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+        .cat-card:hover .cat-img img{transform:scale(1.04)}
+        .cat-check{position:absolute;top:.6rem;right:.6rem;width:1.9rem;height:1.9rem;border-radius:999px;background:#C5A059;color:#0F0F0F;display:none;align-items:center;justify-content:center}
+        .cat-card.is-sel .cat-check{display:flex}
+        .cat-card.is-sel .cat-img{box-shadow:0 0 0 2px #C5A059}
+        .cat-add{border:1px solid rgba(15,15,15,.25);padding:.55rem .9rem;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .3s}
+        .cat-add:hover{border-color:#C5A059}
+        .cat-card.is-sel .cat-add{background:#0F0F0F;border-color:#0F0F0F;color:#fff}
+        .cat-ask{font-size:.75rem;font-weight:600;color:#6A645C;border-bottom:1px solid #C5A059;padding-bottom:1px}
+        .chip{border:1px solid rgba(15,15,15,.2);padding:.55rem 1rem;font-size:.8rem;white-space:nowrap;transition:all .3s}
+        .chip:hover{border-color:#C5A059}
+        .chip[aria-pressed=true]{background:#0F0F0F;color:#fff;border-color:#0F0F0F}
+        #enq-bar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#0F0F0F;color:#fff;transform:translateY(100%);visibility:hidden;transition:transform .35s,visibility 0s .35s}
+        body.has-enq #enq-bar{transform:none;visibility:visible;transition-delay:0s}
+        body.has-enq #wa-fab{display:none}
+        body.has-enq{padding-bottom:4.5rem}
         @media (prefers-reduced-motion: reduce) { html, * { scroll-behavior: auto !important; } .scroll-indicator { animation: none; } * { transition-duration: .01ms !important; } }
     </style>
 </head>
@@ -109,10 +126,11 @@
                 <a href="#" class="luxury-text text-2xl lg:text-3xl font-semibold tracking-wide text-white">
                     Mourine Momo<span class="gold-text"> LUX</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-10">
+                <div class="hidden lg:flex items-center space-x-7">
                     <a href="#home" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Home</a>
                     <a href="#about" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">About</a>
                     <a href="#collections" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Collections</a>
+                    <a href="#catalog" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Catalog</a>
                     <a href="#services" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Services</a>
                     <a href="#gallery" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Gallery</a>
                     <a href="#contact" class="text-sm tracking-widest uppercase text-white/80 hover:text-lux-gold transition-colors duration-300">Contact</a>
@@ -132,6 +150,7 @@
                 <a href="#home" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Home</a>
                 <a href="#about" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">About</a>
                 <a href="#collections" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Collections</a>
+                <a href="#catalog" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Catalog</a>
                 <a href="#services" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Services</a>
                 <a href="#gallery" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Gallery</a>
                 <a href="#contact" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Contact</a>
@@ -158,7 +177,7 @@
                 Hand-knotted Persian rugs, contemporary designs and bespoke furniture, delivered and placed by our own team across Lagos.
             </p>
             <div class="reveal flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#collections" class="btn-luxury gold-gradient text-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500">Browse collections</a>
+                <a href="#catalog" class="btn-luxury gold-gradient text-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500">Shop the catalog</a>
                 <a href="#contact" class="border border-white/50 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium hover:bg-white/10 transition-all duration-500">Visit the showroom</a>
             </div>
         </div>
@@ -316,6 +335,31 @@
                     <p class="text-lux-muted text-sm leading-relaxed">Weather-resistant luxury for your terrace, patio, and garden spaces without compromising style.</p>
                     <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="py-24 lg:py-32 bg-lux-cream">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-2xl mb-12">
+                <h2 class="luxury-text text-lux-dark mb-5">The catalog</h2>
+                <p class="text-lux-muted leading-relaxed">Browse rugs, furniture, lighting and décor. Tick everything you love and send the whole list to us in one message. We reply with sizes, prices and delivery times.</p>
+            </div>
+            <div class="sticky top-[4.5rem] z-30 bg-lux-cream/95 backdrop-blur py-4 border-y border-lux-dark/10 mb-6">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                    <div id="cat-chips" class="flex gap-2 overflow-x-auto pb-1 -mx-6 px-6 lg:mx-0 lg:px-0 lg:flex-wrap flex-1" role="group" aria-label="Filter by category"></div>
+                    <label class="sr-only" for="cat-search">Search products</label>
+                    <input id="cat-search" type="search" placeholder="Search rugs, sofas, lamps…" class="w-full lg:w-64 border-b border-lux-dark/30 bg-transparent py-2 text-sm">
+                </div>
+            </div>
+            <div class="flex items-center justify-between gap-4 mb-8 text-sm">
+                <p id="cat-count" class="text-lux-muted" aria-live="polite"></p>
+                <button type="button" id="cat-selall" class="font-semibold border-b border-lux-gold pb-0.5"></button>
+            </div>
+            <div id="cat-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 lg:gap-x-6"></div>
+            <div class="text-center mt-14">
+                <button type="button" id="cat-more" class="border border-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:bg-lux-dark hover:text-white transition-colors duration-300"></button>
             </div>
         </div>
     </section>
@@ -641,6 +685,16 @@
         </div>
     </footer>
 
+    <div id="enq-bar" role="region" aria-label="Your enquiry list">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+            <p id="enq-count" class="text-sm font-semibold"></p>
+            <div class="flex items-center gap-5">
+                <button type="button" id="enq-clear" class="text-sm text-white/70 underline underline-offset-4">Clear</button>
+                <button type="button" id="enq-send" class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold"></button>
+            </div>
+        </div>
+    </div>
+
     <a id="wa-fab" href="#contact"><svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.555-.337A5.97 5.97 0 015.41 20.97a5.97 5.97 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>Chat with us</a>
 
     <script>
@@ -749,7 +803,7 @@
             card.tabIndex = 0;
             card.setAttribute('role', 'link');
             card.setAttribute('aria-label', 'Enquire about ' + title);
-            const go = () => enquire('Hello, I would like to know more about your ' + title + '.', 'Enquiry: ' + title);
+            const go = () => COLLECTION_MAP[title] ? showCategory(COLLECTION_MAP[title]) : enquire('Hello, I would like to know more about your ' + title + '.', 'Enquiry: ' + title);
             card.addEventListener('click', go);
             card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
         });
@@ -794,6 +848,184 @@
             const via = enquire(text, 'Enquiry from ' + v('first') + ' ' + v('last'));
             document.getElementById('form-status').textContent = 'Opening ' + via + ' with your message ready to send.';
         });
+    </script>
+
+    <script>
+    const COLLECTION_MAP = {'Persian & Oriental Rugs':'persian','Contemporary Area Rugs':'contemporary','Bespoke Furniture':'furniture','Decorative Accents':'decor','Outdoor Elegance':'outdoor'};
+    let showCategory = () => {};
+    (function () {
+        const GOLD = '#C5A059';
+        const CATS = [['all','All'],['persian','Persian & oriental rugs'],['contemporary','Contemporary rugs'],['furniture','Furniture'],['lighting','Lighting'],['decor','Décor & mirrors'],['textiles','Cushions & throws'],['outdoor','Outdoor']];
+        const LABEL = Object.fromEntries(CATS);
+        // name | category | picture style | description | colour set | optional photo path (e.g. images/tabriz.jpg)
+        const RAW = `Tabriz Medallion Rug|persian|medallion|Hand-knotted wool and silk|0
+Isfahan Garden Rug|persian|medallion|Hand-knotted wool, fine knot|2
+Kashan Ruby Rug|persian|medallion|Hand-knotted wool pile|9
+Heriz Geometric Rug|persian|geo|Hand-knotted wool, tribal design|3
+Qum Silk Rug|persian|medallion|Hand-knotted pure silk|1
+Nain Ivory Rug|persian|trellis|Wool and silk blend|1
+Bakhtiari Garden Rug|persian|trellis|Hand-knotted wool|3
+Gabbeh Tribal Rug|persian|stripes|Thick hand-spun wool|5
+Cloud Abstract Rug|contemporary|abstract|Soft viscose and wool|4
+Ink Wash Rug|contemporary|abstract|Hand-tufted wool|7
+Stripe Atelier Rug|contemporary|stripes|Flatweave wool|6
+Halo Round Rug|contemporary|round|Hand-tufted wool|1
+Terrazzo Shag Rug|contemporary|abstract|Plush high-pile shag|5
+Lagoon Geometric Rug|contemporary|geo|Hand-tufted wool and cotton|6
+Adire Weave Rug|contemporary|trellis|African-inspired pattern, wool|3
+Sage Round Rug|contemporary|round|Dense hand-loomed wool|8
+Velvet Chesterfield Sofa|furniture|sofa|Tufted velvet, hardwood frame|9
+Curved Lounge Sofa|furniture|sofa|Soft bouclé upholstery|5
+Bouclé Accent Chair|furniture|armchair|Bouclé with gold-finish legs|1
+Wingback Armchair|furniture|armchair|Velvet, hand-finished|2
+Marble Coffee Table|furniture|coffee|Marble top, brass base|1
+Brass Side Table|furniture|side|Brass and glass|7
+Tufted Ottoman Pouf|furniture|pouf|Velvet, button-tufted|0
+Walnut Side Table|furniture|side|Solid walnut|5
+Brass Table Lamp|lighting|lamp|Brass with linen shade|1
+Ceramic Table Lamp|lighting|lamp|Glazed ceramic base|6
+Arc Floor Lamp|lighting|floorlamp|Brushed brass, dimmable|7
+Opal Pendant Light|lighting|pendant|Hand-blown opal glass|1
+Dome Pendant Light|lighting|pendant|Matte black and gold|7
+Ceramic Bud Vase|decor|vase|Hand-glazed ceramic|8
+Tall Floor Vase|decor|vase|Glazed stoneware|6
+Gilded Round Mirror|decor|mirror|Gold-leaf frame|7
+Arched Wall Mirror|decor|mirror|Brass frame|1
+Abstract Wall Art|decor|wallart|Framed canvas print|3
+Gallery Wall Art|decor|wallart|Framed canvas print|0
+Sculptural Vase|decor|vase|Matte ceramic|4
+Floral Statement Vase|decor|vase|Glass and gold|2
+Velvet Cushion|textiles|cushion|Velvet, feather insert|9
+Embroidered Cushion|textiles|cushion|Embroidered cotton|3
+Bouclé Cushion|textiles|cushion|Textured bouclé|1
+Geometric Cushion|textiles|cushion|Woven cotton blend|6
+Mohair Throw|textiles|throw|Soft mohair blend|5
+Striped Throw|textiles|throw|Cotton and wool|4
+Rattan Lounge Chair|outdoor|armchair|Weather-resistant rattan|5
+Teak Side Table|outdoor|side|Solid teak|5
+Outdoor Stripe Rug|outdoor|stripes|UV-resistant fibre|6
+Garden Pouf|outdoor|pouf|Weatherproof fabric|8`;
+
+        // ---------- generated product pictures (replace by adding a photo path) ----------
+        const rng = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+        const P = [['#EDE6DA','#7A1F2B','#E9D8B4','#1E3A4C','#C5A059'],['#E9E5DD','#F1EADB','#C5A059','#8C7B5A','#2B2B2B'],['#E6E9E1','#24483A','#E9E1C8','#9B6B3C','#C5A059'],['#ECE4DC','#233A6B','#B5532C','#EFE4CF','#7D8FB3'],['#EFE6E4','#E8CFC8','#3A3A3C','#B98F86','#F6EFEA'],['#E8E3D8','#CDBFA5','#8E7F66','#EDE5D3','#5B5142'],['#E1E8E6','#1F6B6B','#D49A2A','#F0E8D6','#0F3E3E'],['#E4E1DB','#151515','#C5A059','#4A4A4A','#EDE8E0'],['#E7EAE3','#A9B8A0','#F4F1EA','#6F8266','#C9B98F'],['#EBE2DB','#5E1A2E','#C69C6D','#E8D9C4','#2E1A1F']];
+        const dm = (x,y,w,h,f,o=1) => `<polygon points="${x},${y-h} ${x+w},${y} ${x},${y+h} ${x-w},${y}" fill="${f}" opacity="${o}"/>`;
+        const flr = (y,rx) => `<ellipse cx="200" cy="${y}" rx="${rx}" ry="13" fill="rgba(0,0,0,.18)" filter="url(#b)"/>`;
+        const wrap = (p,s) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="#D8CFC0"/></linearGradient><filter id="b" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter></defs><rect width="400" height="500" fill="url(#g)"/>${s}</svg>`;
+        const RUGS = ['medallion','geo','stripes','abstract','trellis','round'];
+        function rug(k,p,seed) {
+            const r = rng(seed), X=70, Y=62, W=260, H=376, cx=200, cy=250, pick = () => p[2+Math.floor(r()*3)];
+            let g = '';
+            if (k === 'round') {
+                g += `<circle cx="206" cy="256" r="150" fill="rgba(0,0,0,.2)" filter="url(#b)"/><circle cx="200" cy="250" r="150" fill="${p[1]}"/>`;
+                [128,104,82,58,34].forEach((rd,i) => { g += `<circle cx="200" cy="250" r="${rd}" fill="${i%2?p[1]:p[2+(i%3)]}" opacity="${i%2?1:.9}"/>`; });
+                for (let i=0;i<24;i++) { const a=i*Math.PI/12; g += `<circle cx="${200+Math.cos(a)*140}" cy="${250+Math.sin(a)*140}" r="3" fill="${p[4]}"/>`; }
+                return g;
+            }
+            g += `<clipPath id="c"><rect x="${X}" y="${Y}" width="${W}" height="${H}"/></clipPath><rect x="${X+7}" y="${Y+9}" width="${W}" height="${H}" fill="rgba(0,0,0,.2)" filter="url(#b)"/>`;
+            for (let i=0;i<=26;i++) { const x=X+i*10; g += `<path d="M${x} ${Y} v-13 M${x} ${Y+H} v13" stroke="${p[2]}" stroke-width="2" opacity=".75"/>`; }
+            g += `<rect x="${X}" y="${Y}" width="${W}" height="${H}" fill="${p[1]}"/><g clip-path="url(#c)">`;
+            if (k === 'medallion') {
+                g += `<rect x="${X+12}" y="${Y+12}" width="${W-24}" height="${H-24}" fill="none" stroke="${p[2]}" stroke-width="8"/><rect x="${X+28}" y="${Y+28}" width="${W-56}" height="${H-56}" fill="none" stroke="${p[3]}" stroke-width="3"/>`;
+                for (let i=0;i<9;i++) { const y=Y+50+i*34; g += dm(X+20,y,6,9,p[4])+dm(X+W-20,y,6,9,p[4]); }
+                for (let i=0;i<5;i++) { const x=X+50+i*40; g += dm(x,Y+20,6,9,p[4])+dm(x,Y+H-20,6,9,p[4]); }
+                [[X+30,Y+30],[X+W-30,Y+30],[X+30,Y+H-30],[X+W-30,Y+H-30]].forEach(([x,y]) => { g += `<circle cx="${x}" cy="${y}" r="34" fill="${p[3]}" opacity=".7"/>`; });
+                g += dm(cx,cy,100,132,p[2])+dm(cx,cy,76,102,p[3])+dm(cx,cy,52,70,p[1])+dm(cx,cy,26,36,p[4]);
+            } else if (k === 'geo') {
+                g += `<rect x="${X+10}" y="${Y+10}" width="${W-20}" height="${H-20}" fill="none" stroke="${p[2]}" stroke-width="5"/>`;
+                for (let j=0;j<8;j++) for (let i=0;i<5;i++) { const x=X+30+i*50+(j%2?25:0), y=Y+36+j*45; if (x<X+W-20 && r()>.15) g += dm(x,y,22,20,pick()); }
+            } else if (k === 'stripes') {
+                let y=Y; while (y<Y+H) { const hh=12+r()*54; g += `<rect x="${X}" y="${y}" width="${W}" height="${hh}" fill="${p[1+Math.floor(r()*4)]}"/><rect x="${X}" y="${y+hh-3}" width="${W}" height="3" fill="${p[4]}" opacity=".5"/>`; y+=hh; }
+            } else if (k === 'abstract') {
+                for (let i=0;i<9;i++) g += `<ellipse cx="${X+r()*W}" cy="${Y+r()*H}" rx="${30+r()*80}" ry="${20+r()*70}" fill="${pick()}" opacity="${.5+r()*.45}" transform="rotate(${r()*180} ${X+W/2} ${Y+H/2})"/>`;
+                for (let i=0;i<3;i++) { const y=Y+r()*H; g += `<path d="M${X} ${y} C${X+90} ${y-70} ${X+170} ${y+70} ${X+W} ${y-20}" fill="none" stroke="${p[4]}" stroke-width="${2+r()*3}" opacity=".8"/>`; }
+            } else {
+                for (let k2=-H;k2<W;k2+=44) g += `<path d="M${X+k2} ${Y} l${H} ${H} M${X+k2+H} ${Y} l${-H} ${H}" stroke="${p[2]}" stroke-width="3" fill="none" opacity=".85"/>`;
+                for (let j=0;j<10;j++) for (let i=0;i<7;i++) g += `<circle cx="${X+22+i*44}" cy="${Y+22+j*44}" r="4" fill="${p[3]}"/>`;
+            }
+            return g + `</g><rect x="${X+5}" y="${Y+5}" width="${W-10}" height="${H-10}" fill="none" stroke="${p[4]}" stroke-width="2" opacity=".7"/>`;
+        }
+        const A = {
+            vase: (p,s) => { const r=rng(s), nw=13+r()*14, bw=48+r()*34, top=120+r()*30; let g=flr(432,bw+34);
+                if (s%2) for (let i=0;i<4;i++) { const a=-.5+i*.34, ex=200+a*220, ey=top-120-r()*40; g += `<path d="M200 ${top} Q${200+a*120} ${top-60} ${ex} ${ey}" stroke="${p[3]}" stroke-width="4" fill="none"/><ellipse cx="${ex}" cy="${ey-8}" rx="16" ry="26" fill="${p[2]}" transform="rotate(${a*60} ${ex} ${ey})"/>`; }
+                return g + `<path d="M${200-nw} ${top} L${200+nw} ${top} L${200+nw+4} ${top+60} C${200+bw+60} ${top+120} ${200+bw+30} 410 200 422 C${200-bw-30} 410 ${200-bw-60} ${top+120} ${200-nw-4} ${top+60} Z" fill="${p[1]}"/><ellipse cx="${200-bw*.45}" cy="300" rx="9" ry="64" fill="#fff" opacity=".16"/><path d="M${200-nw-4} ${top+60} H${200+nw+4}" stroke="${GOLD}" stroke-width="5"/><ellipse cx="200" cy="${top}" rx="${nw}" ry="5" fill="${p[2]}"/>`; },
+            lamp: p => flr(436,80) + `<ellipse cx="200" cy="250" rx="170" ry="140" fill="${GOLD}" opacity=".13"/><rect x="194" y="262" width="12" height="62" fill="${GOLD}"/><path d="M154 428 C140 360 150 330 200 322 C250 330 260 360 246 428 Z" fill="${p[1]}"/><ellipse cx="200" cy="428" rx="46" ry="8" fill="${GOLD}"/><path d="M150 150 L250 150 L282 268 L118 268 Z" fill="${p[2]}"/><ellipse cx="200" cy="150" rx="50" ry="8" fill="${p[3]}" opacity=".5"/>`,
+            floorlamp: p => flr(450,70) + `<ellipse cx="200" cy="190" rx="190" ry="150" fill="${GOLD}" opacity=".12"/><ellipse cx="200" cy="440" rx="58" ry="10" fill="${GOLD}"/><path d="M200 440 V210" stroke="${GOLD}" stroke-width="7"/><path d="M140 90 L260 90 L290 210 L110 210 Z" fill="${p[2]}"/>`,
+            pendant: p => `<path d="M200 0 V222" stroke="${GOLD}" stroke-width="3"/><path d="M190 168 h20 v14 h-20 Z" fill="${GOLD}"/><path d="M128 282 L272 282 L350 480 L50 480 Z" fill="${GOLD}" opacity=".14"/><path d="M120 275 C120 205 280 205 280 275 Z" fill="${p[1]}"/><path d="M114 275 H286" stroke="${GOLD}" stroke-width="6"/><circle cx="200" cy="292" r="11" fill="#FFF6D8"/>`,
+            cushion: (p,s) => { let g=flr(410,120)+`<g transform="rotate(7 200 270)"><rect x="115" y="150" width="190" height="190" rx="24" fill="${p[2]}"/></g><g transform="rotate(-6 200 270)"><rect x="90" y="150" width="220" height="220" rx="28" fill="${p[1]}"/>`, m=s%3;
+                if (m===0) for (let i=1;i<7;i++) g += `<path d="M${90+i*31.4} 150 V370" stroke="${p[3]}" stroke-width="${i%2?6:2}" opacity=".8"/>`;
+                else if (m===1) g += dm(200,260,60,60,p[3])+dm(200,260,34,34,p[4]);
+                else for (let i=0;i<4;i++) for (let j=0;j<4;j++) g += `<circle cx="${120+i*54}" cy="${180+j*54}" r="9" fill="${p[3]}"/>`;
+                return g + `<rect x="94" y="154" width="212" height="212" rx="25" fill="none" stroke="${GOLD}" stroke-width="2.5"/></g>`; },
+            throw: (p,s) => { let g=flr(420,150); [[330,1],[262,3],[194,2]].forEach(([y,c],i) => { g += `<path d="M56 ${y+8} h14 M56 ${y+24} h14 M56 ${y+40} h14 M56 ${y+56} h14" stroke="${p[2]}" stroke-width="2"/><rect x="70" y="${y}" width="260" height="72" rx="8" fill="${p[(c+s)%4+1]}"/><path d="M70 ${y+20} H330 M70 ${y+52} H330" stroke="${GOLD}" stroke-width="3" opacity=".8"/>`; }); return g; },
+            armchair: p => flr(436,130) + `<path d="M122 372 L112 436 M278 372 L288 436" stroke="${GOLD}" stroke-width="7" stroke-linecap="round"/><rect x="112" y="130" width="176" height="190" rx="46" fill="${p[1]}"/><rect x="100" y="296" width="200" height="84" rx="24" fill="${p[2]}"/><rect x="82" y="236" width="52" height="144" rx="24" fill="${p[1]}"/><rect x="266" y="236" width="52" height="144" rx="24" fill="${p[1]}"/><path d="M150 180 V290 M200 170 V290 M250 180 V290" stroke="${p[3]}" stroke-width="2" opacity=".5"/>`,
+            sofa: (p,s) => { let g=flr(432,170)+`<path d="M82 372 L74 436 M318 372 L326 436" stroke="${GOLD}" stroke-width="7" stroke-linecap="round"/><rect x="44" y="180" width="312" height="130" rx="40" fill="${p[1]}"/><rect x="62" y="290" width="276" height="86" rx="20" fill="${p[2]}"/><path d="M200 292 V376" stroke="${p[1]}" stroke-width="3" opacity=".5"/><rect x="26" y="236" width="60" height="140" rx="26" fill="${p[1]}"/><rect x="314" y="236" width="60" height="140" rx="26" fill="${p[1]}"/>`;
+                if (s%2) for (let i=0;i<5;i++) for (let j=0;j<2;j++) g += `<circle cx="${96+i*52+(j?26:0)}" cy="${222+j*34}" r="4.5" fill="${GOLD}"/>`; return g; },
+            coffee: p => flr(438,150) + `<path d="M120 290 L100 430 M280 290 L300 430 M170 304 L160 436 M230 304 L240 436" stroke="${GOLD}" stroke-width="7" stroke-linecap="round"/><ellipse cx="200" cy="292" rx="150" ry="42" fill="${p[3]}"/><ellipse cx="200" cy="282" rx="150" ry="42" fill="${p[1]}"/><path d="M110 270 C150 250 170 290 220 270 S280 260 300 282" stroke="${p[2]}" stroke-width="2" fill="none" opacity=".7"/>`,
+            side: (p,s) => { const w=70+(s%3)*14; return flr(438,w+40) + `<path d="M${200-w+14} 300 L${200-w-4} 432 M${200+w-14} 300 L${200+w+4} 432 M${200-w+4} 410 H${200+w-4}" stroke="${GOLD}" stroke-width="6" stroke-linecap="round"/><ellipse cx="200" cy="302" rx="${w+6}" ry="24" fill="${GOLD}"/><ellipse cx="200" cy="296" rx="${w}" ry="22" fill="${p[1]}"/>`; },
+            pouf: p => flr(412,120) + `<path d="M110 300 V392 A90 26 0 0 0 290 392 V300 Z" fill="${p[1]}"/><ellipse cx="200" cy="300" rx="90" ry="26" fill="${p[1]}"/><ellipse cx="200" cy="300" rx="90" ry="26" fill="#fff" opacity=".14"/>` + [0,1,2,3,4].map(i => `<circle cx="${200+(i-2)*30}" cy="${300+(i%2?6:-4)}" r="3.5" fill="${GOLD}"/>`).join('') + `<path d="M110 392 A90 26 0 0 0 290 392" stroke="${GOLD}" stroke-width="5" fill="none"/>`,
+            mirror: (p,s) => { const arch=s%2; let g=`<path d="M200 0 V${arch?128:100}" stroke="${GOLD}" stroke-width="2"/>`;
+                g += arch ? `<path d="M98 440 V230 A102 102 0 0 1 302 230 V440 Z" fill="${GOLD}"/><clipPath id="m"><path d="M114 424 V230 A86 86 0 0 1 286 230 V424 Z"/></clipPath><path d="M114 424 V230 A86 86 0 0 1 286 230 V424 Z" fill="#DDE5E6"/>` : `<circle cx="200" cy="250" r="150" fill="${GOLD}"/><clipPath id="m"><circle cx="200" cy="250" r="130"/></clipPath><circle cx="200" cy="250" r="130" fill="#DDE5E6"/>`;
+                return g + `<g clip-path="url(#m)"><path d="M80 500 L260 60 L300 60 L120 500 Z" fill="#fff" opacity=".4"/><path d="M200 500 L340 150 L360 150 L220 500 Z" fill="#fff" opacity=".28"/></g>`; },
+            wallart: (p,s) => { const r=rng(s); return `<rect x="84" y="78" width="232" height="324" fill="rgba(0,0,0,.2)" filter="url(#b)"/><rect x="80" y="70" width="240" height="330" fill="${GOLD}"/><rect x="92" y="82" width="216" height="306" fill="#F6F1E7"/><circle cx="${160+r()*80}" cy="${160+r()*40}" r="${40+r()*26}" fill="${p[1]}"/><path d="M92 ${300+r()*30} C150 ${240+r()*40} 230 ${340+r()*30} 308 ${290+r()*30} V388 H92 Z" fill="${p[2]}"/><path d="M92 340 C160 310 240 370 308 330 V388 H92 Z" fill="${p[3]}" opacity=".85"/><path d="M130 120 H${180+r()*80}" stroke="${p[4]}" stroke-width="3"/>`; }
+        };
+        const art = (k,p,s) => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(wrap(p, RUGS.includes(k) ? rug(k,p,s) : A[k](p,s)));
+
+        // ---------- catalog ----------
+        const items = RAW.split('\n').map((l,i) => { const [name,cat,kind,desc,pal,photo] = l.split('|'); return {id:i,name,cat,kind,desc,pal:+pal,photo}; });
+        items.forEach(it => { it.img = it.photo || art(it.kind, P[it.pal], it.id*7919+13); });
+        const state = {cat:'all', q:'', shown:12, sel:new Set()};
+        try { JSON.parse(localStorage.getItem('mml-list') || '[]').forEach(i => { if (items[i]) state.sel.add(i); }); } catch (e) {}
+        const $ = id => document.getElementById(id);
+        const grid=$('cat-grid'), chips=$('cat-chips'), more=$('cat-more'), selAll=$('cat-selall');
+        const filtered = () => { const q=state.q.toLowerCase(); return items.filter(it => (state.cat==='all'||it.cat===state.cat) && (!q || (it.name+' '+it.desc+' '+LABEL[it.cat]).toLowerCase().includes(q))); };
+        const saveSel = () => { try { localStorage.setItem('mml-list', JSON.stringify([...state.sel])); } catch (e) {} };
+        const card = it => { const on=state.sel.has(it.id); return `<article class="cat-card ${on?'is-sel':''}" data-id="${it.id}">
+            <button type="button" class="cat-img" data-toggle="${it.id}" aria-pressed="${on}" aria-label="Add ${it.name} to your list"><img src="${it.img}" alt="${it.name}" loading="lazy" decoding="async"><span class="cat-check" aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span></button>
+            <p class="mt-4 text-xs text-lux-muted">${LABEL[it.cat]}</p>
+            <h3 class="luxury-text text-xl lg:text-2xl text-lux-dark leading-tight mt-1">${it.name}</h3>
+            <p class="text-sm text-lux-muted mt-1">${it.desc}</p>
+            <div class="flex items-center justify-between gap-3 mt-4"><button type="button" class="cat-add" data-toggle="${it.id}" aria-pressed="${on}">${on?'Added':'Add to list'}</button><button type="button" class="cat-ask" data-ask="${it.id}">Ask price</button></div></article>`; };
+        function updateBar() {
+            const n=state.sel.size; document.body.classList.toggle('has-enq', n>0);
+            $('enq-count').textContent = n + (n===1?' piece':' pieces') + ' in your list';
+            $('enq-send').textContent = hasWA ? 'Send on WhatsApp' : 'Send by email';
+            const f=filtered(); selAll.hidden = !f.length;
+            const all = f.length && f.every(it => state.sel.has(it.id));
+            selAll.textContent = all ? 'Clear these ' + f.length : 'Select all ' + f.length;
+            selAll.dataset.all = all ? '1' : '';
+            saveSel();
+        }
+        function render() {
+            const f=filtered(), vis=f.slice(0,state.shown);
+            chips.innerHTML = CATS.map(([k,l]) => `<button type="button" class="chip" data-cat="${k}" aria-pressed="${state.cat===k}">${l} (${k==='all'?items.length:items.filter(i=>i.cat===k).length})</button>`).join('');
+            grid.innerHTML = vis.length ? vis.map(card).join('') : `<p class="col-span-full text-lux-muted py-16 text-center">No pieces match “${state.q.replace(/[<>&]/g,'')}”. Clear the search or choose another category.</p>`;
+            $('cat-count').textContent = 'Showing ' + vis.length + ' of ' + f.length + (f.length===1?' piece':' pieces');
+            more.hidden = f.length <= state.shown; more.textContent = 'Show more (' + (f.length-state.shown) + ' left)';
+            updateBar();
+        }
+        function setSel(it,on,el) { on ? state.sel.add(it.id) : state.sel.delete(it.id); if (el) { el.classList.toggle('is-sel',on); el.querySelectorAll('[data-toggle]').forEach(b => b.setAttribute('aria-pressed',on)); el.querySelector('.cat-add').textContent = on?'Added':'Add to list'; } }
+        grid.addEventListener('click', e => {
+            const t=e.target.closest('[data-toggle]'), a=e.target.closest('[data-ask]');
+            if (t) { const it=items[+t.dataset.toggle], el=t.closest('.cat-card'); setSel(it,!state.sel.has(it.id),el); updateBar(); }
+            if (a) { const it=items[+a.dataset.ask]; enquire('Hello Mourine Momo LUX, please send me the price and sizes for the ' + it.name + '.', 'Price enquiry: ' + it.name); }
+        });
+        chips.addEventListener('click', e => { const b=e.target.closest('[data-cat]'); if (b) { state.cat=b.dataset.cat; state.shown=12; render(); } });
+        $('cat-search').addEventListener('input', e => { state.q=e.target.value.trim(); state.shown=12; render(); });
+        more.addEventListener('click', () => { state.shown += 12; render(); });
+        selAll.addEventListener('click', () => { const f=filtered(), clear=selAll.dataset.all==='1'; f.forEach(it => clear ? state.sel.delete(it.id) : state.sel.add(it.id)); render(); });
+        $('enq-clear').addEventListener('click', () => { state.sel.clear(); render(); });
+        $('enq-send').addEventListener('click', () => {
+            const lines=[...state.sel].sort((a,b)=>a-b).map((id,i) => (i+1) + '. ' + items[id].name + ' (' + LABEL[items[id].cat] + ')');
+            enquire('Hello Mourine Momo LUX, I would like prices, sizes and availability for these pieces:\n' + lines.join('\n'), 'Catalog enquiry (' + lines.length + ' pieces)');
+        });
+        showCategory = c => { state.cat=c; state.q=''; $('cat-search').value=''; state.shown=12; render(); $('catalog').scrollIntoView({behavior:'smooth'}); };
+        document.querySelectorAll('.product-card').forEach(cd => {
+            const t = cd.querySelector('h3').textContent.trim(), link = cd.querySelector('p.inline-block'), ov = cd.querySelector('.product-overlay span');
+            if (COLLECTION_MAP[t]) { link.textContent = 'Shop this collection'; if (ov) ov.textContent = 'Shop now'; cd.setAttribute('aria-label', 'Shop ' + t); }
+        });
+        render();
+    })();
     </script>
 </body>
 </html>
