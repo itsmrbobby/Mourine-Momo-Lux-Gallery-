@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mourine Momo LUX Rug | Premium Home Décor & Furniture</title>
+    <title>Mourine Momo LUX Rug | Luxury Rugs & Furniture in Lagos</title>
+    <meta name="description" content="Hand-knotted Persian rugs, contemporary area rugs and bespoke furniture from our Okota showroom in Lagos. Free first consultation, delivery and custom commissions.">
+    <meta name="theme-color" content="#0F0F0F">
+    <meta property="og:title" content="Mourine Momo LUX Rug | Luxury Rugs & Furniture in Lagos">
+    <meta property="og:description" content="Persian and contemporary rugs, bespoke furniture and home accents, delivered and placed across Lagos.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230F0F0F'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='%23C5A059' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FurnitureStore","name":"Mourine Momo LUX Rug","foundingDate":"2018","address":{"@type":"PostalAddress","streetAddress":"Ago Palace Way, Okota","addressLocality":"Isolo","addressRegion":"Lagos State","addressCountry":"NG"},"openingHours":"Mo-Sa 09:00-19:00","email":"hello@mourinemomolux.com"}</script>
+    <noscript><style>.reveal{opacity:1!important;transform:none!important}.line-expand{width:80px!important}.image-reveal{clip-path:none!important}</style></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -21,11 +29,11 @@
                         'lux-charcoal': '#1C1C1C',
                         'lux-cream': '#F8F5F0',
                         'lux-warm': '#EDE8E0',
-                        'lux-muted': '#8A8A8A'
+                        'lux-muted': '#6A645C'
                     },
                     fontFamily: {
-                        'display': ['Playfair Display', 'serif'],
-                        'body': ['Inter', 'sans-serif']
+                        'display': ['Cormorant Garamond', 'Georgia', 'serif'],
+                        'body': ['Manrope', 'system-ui', 'sans-serif']
                     }
                 }
             }
@@ -33,8 +41,10 @@
     </script>
     <style>
         * { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: #F8F5F0; }
-        .luxury-text { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Manrope', system-ui, sans-serif; background-color: #F8F5F0; }
+        .luxury-text { font-family: 'Cormorant Garamond', Georgia, serif; letter-spacing: -0.005em; }
+        h1.luxury-text, h2.luxury-text { font-weight: 500; line-height: 1.05; }
+        h2.luxury-text { font-size: clamp(2.5rem, 5vw, 4rem); }
         .gold-gradient { background: linear-gradient(135deg, #C5A059 0%, #D4B87A 50%, #C5A059 100%); }
         .gold-text {
             background: linear-gradient(135deg, #C5A059, #D4B87A, #C5A059);
@@ -42,7 +52,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .hero-overlay { background: linear-gradient(to bottom, rgba(15,15,15,0.3) 0%, rgba(15,15,15,0.6) 100%); }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(15,15,15,0.55) 0%, rgba(15,15,15,0.42) 45%, rgba(15,15,15,0.82) 100%); }
         .reveal { opacity: 0; transform: translateY(40px); }
         .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
         .product-card:hover .product-img { transform: scale(1.08); }
@@ -71,10 +81,26 @@
         ::-webkit-scrollbar-track { background: #F8F5F0; }
         ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #B08D4A; }
+        html { scroll-padding-top: 5rem; }
+        :focus-visible { outline: 2px solid #C5A059; outline-offset: 3px; }
+        input:focus-visible, textarea:focus-visible, select:focus-visible { outline: none; border-bottom-color: #C5A059; border-bottom-width: 2px; }
+        .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; background: #0F0F0F; color: #fff; padding: .75rem 1rem; }
+        .skip-link:focus { left: 1rem; top: 1rem; }
+        section.bg-lux-cream .text-lux-gold, section.bg-lux-warm .text-lux-gold { color: #8A6A2B; }
+        .product-card:focus-visible .product-overlay { opacity: 1; }
+        @media (hover: none) { .product-overlay { display: none; } }
+        #wa-fab { position: fixed; right: 1rem; bottom: 1rem; z-index: 40; display: inline-flex; align-items: center; gap: .6rem; background: #0F0F0F; color: #fff; border: 1px solid #C5A059; padding: .8rem 1.1rem; font-size: .8rem; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: background .3s, color .3s; }
+        #wa-fab:hover { background: #C5A059; color: #0F0F0F; }
+        #lightbox { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; padding: 1.5rem; background: rgba(15,15,15,.94); }
+        #lightbox.open { display: flex; }
+        #lightbox img { max-width: 100%; max-height: 80vh; object-fit: contain; }
+        #lightbox figcaption { color: rgba(255,255,255,.75); font-size: .875rem; text-align: center; margin-top: .75rem; }
+        #lightbox button { position: absolute; top: 1rem; right: 1.25rem; color: #fff; font-size: 2.25rem; line-height: 1; padding: .25rem .75rem; }
+        @media (prefers-reduced-motion: reduce) { html, * { scroll-behavior: auto !important; } .scroll-indicator { animation: none; } * { transition-duration: .01ms !important; } }
     </style>
-<base target="_blank">
 </head>
 <body class="bg-lux-cream text-lux-dark overflow-x-hidden">
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-700 py-6">
@@ -94,7 +120,7 @@
                 <a href="#contact" class="hidden lg:inline-flex btn-luxury gold-gradient text-lux-dark px-8 py-3 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500">
                     Book Consultation
                 </a>
-                <button id="mobile-menu-btn" class="lg:hidden text-white">
+                <button id="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-white p-2 -mr-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -109,33 +135,31 @@
                 <a href="#services" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Services</a>
                 <a href="#gallery" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Gallery</a>
                 <a href="#contact" class="block text-white/80 hover:text-lux-gold transition-colors py-2 tracking-widest uppercase text-sm">Contact</a>
+                <a href="#contact" class="btn-luxury gold-gradient text-lux-dark block text-center px-8 py-4 mt-4 text-xs tracking-widest uppercase font-semibold">Book Consultation</a>
             </div>
         </div>
     </nav>
 
+    <main id="main">
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section id="home" class="relative min-h-[100svh] py-28 flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=2070&auto=format&fit=crop" 
-                 alt="Luxury Interior" class="w-full h-full object-cover scale-105" id="hero-img">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Luxury Interior" class="w-full h-full object-cover scale-105" id="hero-img" fetchpriority="high">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
         <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <p class="reveal text-lux-gold tracking-[0.4em] uppercase text-xs lg:text-sm mb-6 font-medium">Est. 2018 — Ago Palace, Lagos</p>
+            <p class="reveal text-lux-gold tracking-[0.4em] uppercase text-xs lg:text-sm mb-6 font-medium">Rugs and furniture showroom, Okota, Lagos</p>
             <h1 class="reveal luxury-text text-5xl md:text-7xl lg:text-8xl text-white font-medium leading-tight mb-8">
-                Elevate Your Space<br>
-                <span class="italic font-normal text-lux-gold-light">With Timeless Elegance</span>
+                Rugs and furniture<br>
+                <span class="italic font-normal text-lux-gold-light">for homes worth returning to</span>
             </h1>
-            <p class="reveal text-white/70 text-base lg:text-lg max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-                Curating the finest luxury rugs, bespoke furniture, and interior accents for discerning homes across Nigeria.
+            <p class="reveal text-white/85 text-base lg:text-lg max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+                Hand-knotted Persian rugs, contemporary designs and bespoke furniture, delivered and placed by our own team across Lagos.
             </p>
             <div class="reveal flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#collections" class="btn-luxury gold-gradient text-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500">
-                    Explore Collections
-                </a>
-                <a href="#about" class="border border-white/30 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium hover:bg-white/10 transition-all duration-500">
-                    Our Story
-                </a>
+                <a href="#collections" class="btn-luxury gold-gradient text-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500">Browse collections</a>
+                <a href="#contact" class="border border-white/50 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium hover:bg-white/10 transition-all duration-500">Visit the showroom</a>
             </div>
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-indicator">
@@ -145,18 +169,27 @@
         </div>
     </section>
 
+    <section aria-label="Why clients choose us" class="bg-lux-cream border-b border-lux-dark/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-10 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
+            <div><p class="luxury-text text-xl lg:text-2xl text-lux-dark mb-1">Free first consultation</p><p class="text-sm text-lux-muted leading-relaxed">At your home or in our Okota showroom.</p></div>
+            <div class="lg:border-l lg:border-lux-dark/10 lg:pl-8"><p class="luxury-text text-xl lg:text-2xl text-lux-dark mb-1">Delivery and placement</p><p class="text-sm text-lux-muted leading-relaxed">Handled by our own team across Lagos.</p></div>
+            <div class="lg:border-l lg:border-lux-dark/10 lg:pl-8"><p class="luxury-text text-xl lg:text-2xl text-lux-dark mb-1">Made to your size</p><p class="text-sm text-lux-muted leading-relaxed">Custom rugs in your colours and dimensions.</p></div>
+            <div class="lg:border-l lg:border-lux-dark/10 lg:pl-8"><p class="luxury-text text-xl lg:text-2xl text-lux-dark mb-1">Care and restoration</p><p class="text-sm text-lux-muted leading-relaxed">Cleaning and repair for rugs you already own.</p></div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="py-24 lg:py-32 bg-lux-cream">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div class="relative">
                     <div class="image-reveal overflow-hidden rounded-sm">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=75&w=1000&auto=format&fit=crop" 
                              alt="Luxury Furniture Showroom" class="w-full h-[500px] lg:h-[650px] object-cover">
                     </div>
                     <div class="absolute -bottom-8 -right-4 lg:-right-8 bg-lux-dark p-8 lg:p-10 max-w-xs shadow-2xl">
-                        <p class="luxury-text text-4xl lg:text-5xl gold-text font-semibold mb-2">7+</p>
-                        <p class="text-white/70 text-sm tracking-wider uppercase">Years of Excellence in Luxury Décor</p>
+                        <p id="years-badge" class="luxury-text text-5xl lg:text-6xl gold-text font-semibold mb-2">8+</p>
+                        <p class="text-white/70 text-sm tracking-wider uppercase">Years curating luxury décor in Lagos</p>
                     </div>
                 </div>
                 <div class="lg:pl-8">
@@ -168,7 +201,7 @@
                         Crafting Luxurious<br><span class="italic text-lux-muted">Living Experiences</span>
                     </h2>
                     <p class="reveal text-lux-muted leading-relaxed mb-6 text-base">
-                        At Mourine Momo LUX Rug, we believe that every home deserves to be a sanctuary of beauty and comfort. Founded in the heart of Ago Palace, Lagos, we have spent over seven years curating the world's finest rugs, furniture, and home accessories.
+                        At Mourine Momo LUX Rug, we believe that every home deserves to be a sanctuary of beauty and comfort. Founded in the heart of Ago Palace, Lagos, we have been curating the world's finest rugs, furniture and home accessories.
                     </p>
                     <p class="reveal text-lux-muted leading-relaxed mb-10 text-base">
                         Our collection spans from hand-knotted Persian masterpieces to contemporary African-inspired designs, paired with bespoke furniture that transforms spaces into personal galleries of art. We serve clients who understand that luxury is not just about price — it is about the story, the craftsmanship, and the emotion a piece brings to your home.
@@ -213,69 +246,75 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?q=80&w=2070&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?q=75&w=1000&auto=format&fit=crop" 
                              alt="Persian Rugs" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Persian & Oriental Rugs</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Hand-knotted masterpieces that carry centuries of weaving tradition into your living space.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=1780&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=75&w=1000&auto=format&fit=crop" 
                              alt="Modern Rugs" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Contemporary Area Rugs</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Bold, modern designs that anchor your space with texture, color, and contemporary flair.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=75&w=1000&auto=format&fit=crop" 
                              alt="Luxury Furniture" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Bespoke Furniture</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Custom-crafted sofas, accent chairs, and tables designed to complement your unique aesthetic.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=75&w=1000&auto=format&fit=crop" 
                              alt="Home Accents" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Decorative Accents</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Vases, sculptures, lighting, and textiles that add the finishing touches of sophistication.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1780&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=75&w=1000&auto=format&fit=crop" 
                              alt="Custom Rugs" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Custom Rug Design</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Work with our artisans to create a one-of-a-kind rug tailored to your exact specifications.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
                 <div class="reveal product-card group cursor-pointer">
                     <div class="relative overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1780&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=75&w=1000&auto=format&fit=crop" 
                              alt="Outdoor Luxury" class="product-img w-full h-[400px] object-cover transition-transform duration-700">
                         <div class="product-overlay absolute inset-0 bg-lux-dark/40 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">View Collection</span>
+                            <span class="gold-gradient text-lux-dark px-6 py-3 text-xs tracking-widest uppercase font-semibold">Enquire now</span>
                         </div>
                     </div>
                     <h3 class="luxury-text text-2xl text-lux-dark mb-2 group-hover:text-lux-gold transition-colors">Outdoor Elegance</h3>
                     <p class="text-lux-muted text-sm leading-relaxed">Weather-resistant luxury for your terrace, patio, and garden spaces without compromising style.</p>
+                    <p class="mt-4 inline-block border-b border-lux-gold pb-1 text-xs font-semibold tracking-widest uppercase text-lux-dark">Enquire on WhatsApp</p>
                 </div>
             </div>
         </div>
@@ -284,7 +323,7 @@
     <!-- Services Section -->
     <section id="services" class="py-24 lg:py-32 bg-lux-dark text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=2070&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=75&w=1000&auto=format&fit=crop" alt="" class="w-full h-full object-cover">
         </div>
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -302,7 +341,7 @@
                     <div class="space-y-8">
                         <div class="reveal flex gap-6 group">
                             <div class="flex-shrink-0 w-14 h-14 border border-lux-gold/30 flex items-center justify-center group-hover:border-lux-gold transition-colors duration-500">
-                                <span class="luxury-text text-2xl gold-text">01</span>
+                                <svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3z"/></svg>
                             </div>
                             <div>
                                 <h3 class="luxury-text text-xl mb-2 group-hover:text-lux-gold transition-colors">Interior Styling Consultation</h3>
@@ -311,7 +350,7 @@
                         </div>
                         <div class="reveal flex gap-6 group">
                             <div class="flex-shrink-0 w-14 h-14 border border-lux-gold/30 flex items-center justify-center group-hover:border-lux-gold transition-colors duration-500">
-                                <span class="luxury-text text-2xl gold-text">02</span>
+                                <svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3z"/></svg>
                             </div>
                             <div>
                                 <h3 class="luxury-text text-xl mb-2 group-hover:text-lux-gold transition-colors">Custom Rug Commissioning</h3>
@@ -320,7 +359,7 @@
                         </div>
                         <div class="reveal flex gap-6 group">
                             <div class="flex-shrink-0 w-14 h-14 border border-lux-gold/30 flex items-center justify-center group-hover:border-lux-gold transition-colors duration-500">
-                                <span class="luxury-text text-2xl gold-text">03</span>
+                                <svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3z"/></svg>
                             </div>
                             <div>
                                 <h3 class="luxury-text text-xl mb-2 group-hover:text-lux-gold transition-colors">White-Glove Delivery</h3>
@@ -329,7 +368,7 @@
                         </div>
                         <div class="reveal flex gap-6 group">
                             <div class="flex-shrink-0 w-14 h-14 border border-lux-gold/30 flex items-center justify-center group-hover:border-lux-gold transition-colors duration-500">
-                                <span class="luxury-text text-2xl gold-text">04</span>
+                                <svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3z"/></svg>
                             </div>
                             <div>
                                 <h3 class="luxury-text text-xl mb-2 group-hover:text-lux-gold transition-colors">Rug Care & Restoration</h3>
@@ -340,7 +379,7 @@
                 </div>
                 <div class="relative">
                     <div class="image-reveal overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" 
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=75&w=1000&auto=format&fit=crop" 
                              alt="Interior Design Service" class="w-full h-[600px] object-cover">
                     </div>
                     <div class="absolute -bottom-6 -left-6 gold-gradient p-8 shadow-2xl">
@@ -367,7 +406,7 @@
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="reveal col-span-2 row-span-2 overflow-hidden group cursor-pointer relative">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=2070&auto=format&fit=crop" 
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=75&w=1000&auto=format&fit=crop" 
                          alt="Living Room Transformation" class="w-full h-full min-h-[400px] object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-lux-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                         <div>
@@ -377,31 +416,31 @@
                     </div>
                 </div>
                 <div class="reveal overflow-hidden group cursor-pointer relative">
-                    <img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?q=80&w=2070&auto=format&fit=crop" 
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?q=75&w=1000&auto=format&fit=crop" 
                          alt="Rug Detail" class="w-full h-[200px] lg:h-[250px] object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-lux-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span class="text-white text-xs tracking-widest uppercase">View Project</span>
+                        <span class="text-white text-xs tracking-widest uppercase">View larger</span>
                     </div>
                 </div>
                 <div class="reveal overflow-hidden group cursor-pointer relative">
-                    <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1780&auto=format&fit=crop" 
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=75&w=1000&auto=format&fit=crop" 
                          alt="Bedroom Setup" class="w-full h-[200px] lg:h-[250px] object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-lux-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span class="text-white text-xs tracking-widest uppercase">View Project</span>
+                        <span class="text-white text-xs tracking-widest uppercase">View larger</span>
                     </div>
                 </div>
                 <div class="reveal overflow-hidden group cursor-pointer relative">
-                    <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=1780&auto=format&fit=crop" 
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=75&w=1000&auto=format&fit=crop" 
                          alt="Dining Area" class="w-full h-[200px] lg:h-[250px] object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-lux-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span class="text-white text-xs tracking-widest uppercase">View Project</span>
+                        <span class="text-white text-xs tracking-widest uppercase">View larger</span>
                     </div>
                 </div>
                 <div class="reveal overflow-hidden group cursor-pointer relative">
-                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=1780&auto=format&fit=crop" 
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=75&w=1000&auto=format&fit=crop" 
                          alt="Office Space" class="w-full h-[200px] lg:h-[250px] object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-lux-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span class="text-white text-xs tracking-widest uppercase">View Project</span>
+                        <span class="text-white text-xs tracking-widest uppercase">View larger</span>
                     </div>
                 </div>
             </div>
@@ -511,36 +550,43 @@
                         </div>
                     </div>
                     <div class="reveal flex gap-4">
-                        <a href="#" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center hover:bg-lux-dark hover:text-white transition-all duration-300">FB</a>
-                        <a href="#" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center hover:bg-lux-dark hover:text-white transition-all duration-300">IG</a>
-                        <a href="#" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center hover:bg-lux-dark hover:text-white transition-all duration-300">LI</a>
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center text-xs font-semibold hover:bg-lux-dark hover:text-white transition-all duration-300">FB</a>
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center text-xs font-semibold hover:bg-lux-dark hover:text-white transition-all duration-300">IG</a>
+                        <a href="#" aria-label="LinkedIn" class="w-10 h-10 border border-lux-dark/20 flex items-center justify-center text-xs font-semibold hover:bg-lux-dark hover:text-white transition-all duration-300">LI</a>
                     </div>
                 </div>
                 <div class="bg-white p-10 lg:p-12 shadow-xl">
                     <h3 class="luxury-text text-2xl text-lux-dark mb-8">Send Us a Message</h3>
-                    <form class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-xs tracking-widest uppercase text-lux-muted mb-2">First Name</label>
-                                <input type="text" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" placeholder="John">
+                                <label for="f-first" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">First Name</label>
+                                <input type="text" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" id="f-first" name="first" required autocomplete="given-name" placeholder="Ada">
                             </div>
                             <div>
-                                <label class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Last Name</label>
-                                <input type="text" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" placeholder="Doe">
+                                <label for="f-last" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Last Name</label>
+                                <input type="text" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" id="f-last" name="last" required autocomplete="family-name" placeholder="Okafor">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Email Address</label>
-                            <input type="email" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" placeholder="john@example.com">
+                            <label for="f-email" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Email Address</label>
+                            <input type="email" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" id="f-email" name="email" autocomplete="email" placeholder="ada@example.com">
                         </div>
                         <div>
-                            <label class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Phone Number</label>
-                            <input type="tel" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" placeholder="+234 800 000 0000">
+                            <label for="f-phone" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Phone Number</label>
+                            <input type="tel" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors" id="f-phone" name="phone" required autocomplete="tel" placeholder="+234 800 000 0000">
                         </div>
                         <div>
-                            <label class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Message</label>
-                            <textarea rows="4" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                            <label for="f-interest" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">I am interested in</label>
+                            <select id="f-interest" name="interest" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:outline-none transition-colors">
+                                <option>Persian &amp; oriental rugs</option><option>Contemporary area rugs</option><option>Bespoke furniture</option><option>Decorative accents</option><option>Custom rug design</option><option>Outdoor pieces</option><option>Interior styling consultation</option><option>Rug care and restoration</option><option>Not sure yet</option>
+                            </select>
                         </div>
+                        <div>
+                            <label for="f-message" class="block text-xs tracking-widest uppercase text-lux-muted mb-2">Message</label>
+                            <textarea rows="4" class="w-full border-b border-lux-dark/20 bg-transparent py-3 focus:border-lux-gold focus:outline-none transition-colors resize-none" id="f-message" name="message" required placeholder="Room size, style you like, timeline…"></textarea>
+                        </div>
+                        <p id="form-status" role="status" class="text-sm text-lux-muted min-h-[1.25rem]"></p>
                         <button type="submit" class="btn-luxury gold-gradient text-lux-dark px-10 py-4 text-xs tracking-widest uppercase font-semibold hover:shadow-2xl hover:shadow-lux-gold/30 transition-all duration-500 w-full">
                             Send Message
                         </button>
@@ -549,6 +595,7 @@
             </div>
         </div>
     </section>
+    </main>
     <!-- Footer -->
     <footer class="bg-lux-dark text-white py-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -576,31 +623,39 @@
                 <div>
                     <h4 class="luxury-text text-lg mb-6">Collections</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-white/50 hover:text-lux-gold transition-colors text-sm">Persian Rugs</a></li>
-                        <li><a href="#" class="text-white/50 hover:text-lux-gold transition-colors text-sm">Contemporary Rugs</a></li>
-                        <li><a href="#" class="text-white/50 hover:text-lux-gold transition-colors text-sm">Bespoke Furniture</a></li>
-                        <li><a href="#" class="text-white/50 hover:text-lux-gold transition-colors text-sm">Decorative Accents</a></li>
-                        <li><a href="#" class="text-white/50 hover:text-lux-gold transition-colors text-sm">Custom Design</a></li>
+                        <li><a href="#collections" class="text-white/60 hover:text-lux-gold transition-colors text-sm">Persian Rugs</a></li>
+                        <li><a href="#collections" class="text-white/60 hover:text-lux-gold transition-colors text-sm">Contemporary Rugs</a></li>
+                        <li><a href="#collections" class="text-white/60 hover:text-lux-gold transition-colors text-sm">Bespoke Furniture</a></li>
+                        <li><a href="#collections" class="text-white/60 hover:text-lux-gold transition-colors text-sm">Decorative Accents</a></li>
+                        <li><a href="#collections" class="text-white/60 hover:text-lux-gold transition-colors text-sm">Custom Design</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-white/40 text-xs tracking-wider">&copy; 2024 Mourine Momo LUX Rug. All rights reserved.</p>
+                <p class="text-white/60 text-xs tracking-wider">&copy; <span id="year">2026</span> Mourine Momo LUX Rug. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-white/40 hover:text-lux-gold transition-colors text-xs tracking-wider">Privacy Policy</a>
-                    <a href="#" class="text-white/40 hover:text-lux-gold transition-colors text-xs tracking-wider">Terms of Service</a>
+                    <a href="#" class="text-white/60 hover:text-lux-gold transition-colors text-xs tracking-wider">Privacy Policy</a>
+                    <a href="#" class="text-white/60 hover:text-lux-gold transition-colors text-xs tracking-wider">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <a id="wa-fab" href="#contact"><svg class="w-5 h-5 text-lux-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.555-.337A5.97 5.97 0 015.41 20.97a5.97 5.97 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>Chat with us</a>
 
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const open = !mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', open);
         });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }));
+        const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -615,6 +670,10 @@
         });
 
         // GSAP Animations
+        if (!window.gsap || REDUCE) {
+            document.querySelectorAll('.reveal').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; });
+            document.querySelectorAll('.line-expand, .image-reveal').forEach(e => e.classList.add('active'));
+        } else {
         gsap.registerPlugin(ScrollTrigger);
 
         // Hero parallax
@@ -660,6 +719,80 @@
                 start: 'top 80%',
                 onEnter: () => img.classList.add('active')
             });
+        });
+        }
+    </script>
+    <script>
+        // Set WHATSAPP to the real number: digits only, with country code, e.g. '2348012345678'
+        const WHATSAPP = '234XXXXXXXXXX';
+        const EMAIL = 'hello@mourinemomolux.com';
+        const hasWA = /^\d{10,15}$/.test(WHATSAPP);
+
+        function enquire(text, subject) {
+            if (hasWA) {
+                window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+                return 'WhatsApp';
+            }
+            location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+            return 'your email app';
+        }
+
+        const fab = document.getElementById('wa-fab');
+        if (hasWA) { fab.href = 'https://wa.me/' + WHATSAPP; fab.target = '_blank'; fab.rel = 'noopener'; }
+
+        document.getElementById('years-badge').textContent = (new Date().getFullYear() - 2018) + '+';
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Collection cards open an enquiry
+        document.querySelectorAll('.product-card').forEach(card => {
+            const title = card.querySelector('h3').textContent.trim();
+            card.tabIndex = 0;
+            card.setAttribute('role', 'link');
+            card.setAttribute('aria-label', 'Enquire about ' + title);
+            const go = () => enquire('Hello, I would like to know more about your ' + title + '.', 'Enquiry: ' + title);
+            card.addEventListener('click', go);
+            card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+        });
+
+        // Gallery lightbox
+        const lb = document.createElement('div');
+        lb.id = 'lightbox';
+        lb.setAttribute('role', 'dialog');
+        lb.setAttribute('aria-modal', 'true');
+        lb.setAttribute('aria-label', 'Image preview');
+        lb.innerHTML = '<button type="button" aria-label="Close preview">&times;</button><figure><img alt=""><figcaption></figcaption></figure>';
+        document.body.appendChild(lb);
+        const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption'), lbClose = lb.querySelector('button');
+        let opener = null;
+        function closeLb() { lb.classList.remove('open'); if (opener) opener.focus(); }
+        document.querySelectorAll('#gallery .group').forEach(item => {
+            const img = item.querySelector('img');
+            item.tabIndex = 0;
+            item.setAttribute('role', 'button');
+            item.setAttribute('aria-label', 'View larger: ' + img.alt);
+            const open = () => {
+                opener = item;
+                lbImg.src = img.src.replace('w=1000', 'w=1800');
+                lbImg.alt = img.alt;
+                lbCap.textContent = img.alt;
+                lb.classList.add('open');
+                lbClose.focus();
+            };
+            item.addEventListener('click', open);
+            item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+        });
+        lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+
+        // Contact form sends the enquiry to WhatsApp (or email until a number is set)
+        document.getElementById('contact-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const f = e.target, v = n => f.elements[n].value.trim();
+            const text = 'Hello Mourine Momo LUX, my name is ' + v('first') + ' ' + v('last') + '.\n' +
+                'Interested in: ' + v('interest') + '\n' + v('message') + '\n' +
+                'Phone: ' + v('phone') + (v('email') ? '\nEmail: ' + v('email') : '');
+            const via = enquire(text, 'Enquiry from ' + v('first') + ' ' + v('last'));
+            document.getElementById('form-status').textContent = 'Opening ' + via + ' with your message ready to send.';
         });
     </script>
 </body>
